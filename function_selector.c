@@ -6,7 +6,7 @@
  *
  * Return: 0
  */
-int (*function_selector(char *s))(int)
+int (*function_selector(char s))(printf_args)
 {
 	int i = 0;
 

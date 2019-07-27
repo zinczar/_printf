@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 
 /**
  * struct op - Struct op
@@ -19,7 +20,7 @@ typedef struct op
 
 int _putchar(char c);
 int print_char(char c);
-int _printf(char *str, ...);
-int (*function_selector(char *s))(int);
+int _printf(const char *format, ...);
+int (*function_selector(char s))(printf_args);
 
 #endif

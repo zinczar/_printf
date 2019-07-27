@@ -6,24 +6,29 @@
  *
  * Return: 0
  */
-int _printf(char *str, ...)
+int _printf(const char *format, ...)
 {
+	va_list printf_args;
 	int i;
-	char command;
-	int (*func)(int);
+	int command;
+	int (*func)(printf_args);
 
-	for (i = 0; str[i] != '\0'; i++)
+	va_start(printf_args, format);
+
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (str[i] == '%')
+		if (format[i] == '%')
 		{
-			func = function_selector(str[i++]);
+			func = function_selector(format[i++]);
+			i += 2;
 		}
 		else
-			_putchar(str[i]);
+			_putchar(format[i]);
 	}
 
-	command  = func(int);
+	command = func(printf_args);
+
+	va_end(printf_args);
 
 	return (0);
-
 }
