@@ -9,24 +9,25 @@
 int _printf(const char *format, ...)
 {
 	va_list printf_args;
-	int i;
-	int command;
-	int (*func)(printf_args);
+/*	int i;*/
+/*	char *command;*/
+	int (*selected_func)(va_list printf_args);
 
 	va_start(printf_args, format);
 
-	for (i = 0; format[i] != '\0'; i++)
+	while(*format != '\0')
 	{
-		if (format[i] == '%')
+		if (*format == '%')
 		{
-			func = function_selector(format[i++]);
-			i += 2;
+			selected_func = function_selector(format++)(va_list printf_args);
+/*			command = func(printf_args);*/
+			format += 2;
 		}
 		else
-			_putchar(format[i]);
-	}
+			_putchar(*format);
 
-	command = func(printf_args);
+		format++;
+	}
 
 	va_end(printf_args);
 

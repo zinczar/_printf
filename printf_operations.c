@@ -24,3 +24,20 @@ int print_char(char c)
 {
 	return (write(1, &c, 1));
 }
+
+
+/**
+ * print_string - Code
+ *
+ * Return: 0
+ */
+int print_string(char *s)
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+		_putchar(s[i]);
+
+	return (0);
+
+}

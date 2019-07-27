@@ -6,21 +6,20 @@
  *
  * Return: 0
  */
-int (*function_selector(char s))(printf_args)
+int (*function_selector(char *s))(va_list printf_args)
 {
-	int i = 0;
-
 	op_t operators[] = {
-		{"c", print_char},
-/*		{"s", print_string},
-		{"i", print_integer},
-		{"d", print_decimal},*/
+		{'c', print_char},
+		{'s', print_string},
+/*		{'i', print_integer},
+		{'d', print_decimal},*/
 		{NULL, NULL}
 	};
+	int i = 0;
 
 	while (operators[i].op)
 	{
-		if (strcmp(s, operators[i].op) == 0)
+		if (s == operators[i].op)
 			return (operators[i].f);
 		i++;
 	}

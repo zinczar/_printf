@@ -21,6 +21,7 @@ typedef struct op
 int _putchar(char c);
 int print_char(char c);
 int _printf(const char *format, ...);
-int (*function_selector(char s))(printf_args);
+int (*function_selector(char *s))(va_list printf_args);
+int print_string(char *s);
 
 #endif
