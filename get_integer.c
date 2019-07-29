@@ -21,8 +21,10 @@ int print_integer(int number)
 	}
 
 	else if (number == 0)
-		return (0);
-
+	{
+		_putchar('0');
+		return (1);
+	}
 	else
 		number2 = number;
 
@@ -45,8 +47,14 @@ int print_integer(int number)
 int get_integer(va_list arguments)
 {
 	int integer;
+	int int_length;
+	int return_number;
 
 	integer = va_arg(arguments, int);
 
-	return(print_integer(integer));
+	return_number = print_integer(integer);
+
+	int_length = int_count(return_number);
+
+	return (int_length);
 }

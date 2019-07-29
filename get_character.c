@@ -12,6 +12,6 @@
 
 int get_character(va_list arguments)
 {
-        _putchar(va_arg(arguments, int));
-        return (0);
+	_putchar(va_arg(arguments, int));
+	return (1);
 }
