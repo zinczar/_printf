@@ -2,25 +2,45 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+/**
+ * print_decimal - print the decimal ranging from INT_MIN - INT_MAX
+ *
+ * @number: value passed from function get_decimal
+ *
+ * Return: number2
+ */
+
 int print_decimal(int number)
 {
-	if(number < 0)
+	unsigned int number2;
+
+	if (number < 0)
 	{
 		_putchar('-');
 		number = -number;
 	}
 
-	if (number == 0)
+	else if (number == 0)
 		return (0);
 
-	if (number / 10 != 0)
-		print_decimal(number / 10);
+	else
+		number2 = number;
 
-	_putchar(number % 10 + '0');
+	if (number2 / 10 != 0)
+		print_decimal(number2 / 10);
 
-	return (number);
+	_putchar(number2 % 10 + '0');
+
+	return (number2);
 }
 
+/**
+ * get_decimal - gets the value for decimal (base10)
+ *
+ * @arguments: value from get_percent
+ *
+ * Return: Always 0 (Success)
+ */
 
 int get_decimal(va_list arguments)
 {
