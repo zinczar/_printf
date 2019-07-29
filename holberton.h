@@ -1,9 +1,7 @@
 #ifndef _HOLBERTON_H
 #define _HOLBERTON_H
 
-#include <stlib.h>
 #include <stdarg.h>
-#include <stdio.h>
 
 typedef struct operation
 {
